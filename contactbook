@@ -1,0 +1,46 @@
+contacts = []
+
+def add_contact(name, phone):
+    contacts.append({"name": name, "phone": phone})
+    print("Contact added!")
+
+add_contact("Menna", "437-555-1234")
+add_contact("Allan", "437-555-5678")
+
+
+def view_contacts():
+    for contact in contacts:
+        print("Name:", contact["name"])
+        print("Phone:", contact["phone"])
+        print("---")
+
+def delete_contact(name):
+    for contact in contacts:
+        if contact["name"] == name:
+            contacts.remove(contact)
+            print(name, "deleted!")
+            return
+        
+while True:
+    print("1. Add Contact")
+    print("2. View Contacts")
+    print("3. Delete Contact")
+    print("4. Exit")
+    
+    choice = input("Choose an option: ")
+    
+    if choice == "1":
+        name = input("Enter name: ")
+        phone = input("Enter phone number: ")
+        add_contact(name, phone)
+    elif choice == "2":
+        view_contacts()
+    elif choice == "3":
+        name = input("Enter name to delete: ")
+        delete_contact(name)
+    elif choice == "4":
+        print("Goodbye!")
+        break
+    else:
+        print("Invalid option, please try again.")
+
